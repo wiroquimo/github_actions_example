@@ -16,6 +16,10 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    env:
+      DATABASE: My_DB
+      USER: Me
+      PASSWORD: 123pass
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -29,7 +33,8 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Show my environment variables
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "DATABASE: ${{env.DATABASE}}"
+          echo "USER: ${{env.USER}}"
+          echo "PASSWORD: ${{env.PASSWORD}}"
